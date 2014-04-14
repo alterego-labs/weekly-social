@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>WeeklySocial</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
+ <%= stylesheet_link_tag    "application", media: "all" %> 
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -11,21 +11,16 @@
 <div class="text-center page-header">
 	<h1>Weekly Social</h1>
 </div>
-<div class="container">
-	<div class="row">
-		<div class="col-md-3">
-			<ul class="nav nav-pills nav-stacked">
-				<li class="active"><a href="/">Home</a></li>
-				<li><a href="#">Profile</a></li>
-				<li><a href="#">Messages</a></li>
-			</ul>
-		</div>
-		<div class="col-md-9">
-		<!-- main -->
-		<%= yield %>
-		</div>
+
+<div class="page-wrapper">
+	<div class="text-center page-buffer">
+		<%= yield %>	
 	</div>
 </div>
 
+<div class="text-center page-footer">
+ 	<p>Copyright 2014 Ivan and Alex</p>
+</div>
+	
 </body>
 </html>
