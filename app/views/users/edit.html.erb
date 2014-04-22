@@ -1,6 +1,18 @@
-<h1>Editing user</h1>
+<div class="container">
+	<div class="row">
 
-<%= render 'form' %>
+		<div class="side col-md-3">
+		<ul class="nav nav-pills nav-stacked">
+				<li class="active"><%= link_to 'My Page', user_path %></li>
+				<li><%= link_to 'Edit Profile', edit_user_path(@user) %></li>
+				<hr color="#eeeeee">
+				<li><%= button_to 'Logout',{ action: "destroy" , controller: "session"}, method: :delete %></li>
+			</ul>
+		</div>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+		<div class="col-md-9">
+			<h3>Edit profile</h3>
+			<%= render 'form_edit_profile' %>
+		</div>
+	</div>
+</div>

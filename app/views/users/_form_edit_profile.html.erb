@@ -1,0 +1,69 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :surname %><br>
+    <%= f.text_field :surname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :avatar_url %><br>
+    <%= f.text_field :avatar_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :home_city %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %></br>
+    <%= radio_button_tag(:sex, "Man") %>
+    <%= label_tag(:sex, "Man") %>
+    <%= radio_button_tag(:sex, "Woman") %>
+    <%= label_tag(:sex, "Woman") %>
+  </div>
+  <div class="field">
+    <%= f.label :birthday_date %></br>
+    <%= select_day(Time.now) %>
+    <%= select_month(Time.now) %>
+    <%= select_year(Time.now, start_year: (Time.now.year-100), end_year: Time.now.year) %>
+  </div>
+  
+  <hr>
+  <h4>Change password</h4>
+
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="actions">
+    <button type="submit" class="btn btn-default">Accept</button>
+  </div>
+<% end %>

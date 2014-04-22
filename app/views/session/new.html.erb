@@ -1,7 +1,12 @@
 <div class="container">
 	<div class="row">
 
-		<div class="col-md-3">
+		<div class="side col-md-3">
+		<% if flash[:notice] %>
+		<div style="width:200px" id="error_explanation">
+			<p><b><%= flash[:notice] %></b></p>
+		</div>
+		<% end %>
 		<%= form_tag("/session/create", method: "post") do  %>
 		  <div class="field">
 		    <%= label_tag :login %><br>
@@ -20,8 +25,10 @@
 		<%= link_to 'Registration', new_user_path %>
 		</div>
 
-		<div class="col-md-9">
-			<p> Description </p>
+
+
+		<div class="main-page col-md-9">
+			<h3> Welcome! </p>
 		</div>
 
 	</div>

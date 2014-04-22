@@ -18,18 +18,37 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+
 }
 .page-wrapper {
     min-height: 100%;
     margin-bottom: -50px;
+    
 }
 * html .page-wrapper {
     height: 100%;
+
+  
 }
 .page-buffer {
     height: 50px;
 }
 .page-footer{
-	border-top:1px solid #eeeeee;
+	border-top: 2px solid #eeeeee;
 }
 
+ .side{
+	border-right:2px solid #eeeeee;
+	}
+.page-header{
+	border-bottom:2px solid #eeeeee;
+    img {
+    float: left;
+    height: 55px;
+    width: 55px;
+
+
+ 
+    }
+
+}
