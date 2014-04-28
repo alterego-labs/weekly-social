@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415103805) do
+ActiveRecord::Schema.define(version: 20140423123650) do
 
   create_table "users", force: true do |t|
     t.string   "login"
@@ -23,10 +23,7 @@ ActiveRecord::Schema.define(version: 20140415103805) do
     t.string   "sex"
     t.string   "country"
     t.string   "home_city"
-    t.string   "month"
     t.string   "avatar_url"
-    t.integer  "day"
-    t.integer  "year"
   end
 
 end

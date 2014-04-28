@@ -43,6 +43,13 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        # unless (@user.day and @user.month and @user.year)
+        #   @user.day = nil
+        #   @user.month = nil
+        #   @user.year = nil
+        #   format.html { render action: 'edit', notice: 'User birthday date must bu full' }
+        #   format.json { head :no_content }
+        # end
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else

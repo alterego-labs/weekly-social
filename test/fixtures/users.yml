@@ -12,10 +12,8 @@
 #  sex             :string(255)
 #  country         :string(255)
 #  home_city       :string(255)
-#  month           :string(255)
 #  avatar_url      :string(255)
-#  day             :integer
-#  year            :integer
+#  birthday        :date
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

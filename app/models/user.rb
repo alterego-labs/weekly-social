@@ -12,16 +12,15 @@
 #  sex             :string(255)
 #  country         :string(255)
 #  home_city       :string(255)
-#  month           :string(255)
 #  avatar_url      :string(255)
-#  day             :integer
-#  year            :integer
+#  birthday        :date
 #
 
 class User < ActiveRecord::Base
 	validates :login, :password_digest, presence: true
 	validates :login, uniqueness: true
   	has_secure_password
-  	
+
+
 end
 

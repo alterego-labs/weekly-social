@@ -23,23 +23,43 @@
 	        <div class="col-md-7">
 	        	<table class="text">
 	        	<tr>
-	        	<td class="leftcol">
-				<b>
-				<%= @user.name %>  <%= @user.surname %>
-				</b>
-				</td>
-				<td class="rightcol">
-	<!--			<b>
-				
-					 if session[:user_id] 
-						Online
-					 else 
-						Offline
-					 end 
-					
-				</b>
-			!-->
-				</td>
+		        	<td class="leftcol">
+						<b>
+						<%= @user.name %>  <%= @user.surname %>
+						</b>
+						<hr>
+					</td>
+					<td class="rightcol">
+						<!--<b>
+								Online
+								Offline
+						</b>!-->
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b>Sex:</b> <%= user_information(@user.sex) %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b>Country:</b> <%= user_information(@user.country) %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b>City:</b> <%= user_information(@user.home_city) %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b>Birthday:</b>
+						<% if @user.birthday %>
+							<%= @user.birthday %>
+						<% else %>
+							Ne ukazano
+						<% end %>
+					</td>
 				</tr>
 				</table>
 			</div>

@@ -38,19 +38,19 @@
   </div>
   <div class="field">
     <%= f.label :sex %></br>
-    <%= radio_button_tag(:sex, "Man") %>
+    <%= f.radio_button(:sex, "Man") %>
     <%= label_tag(:sex, "Man") %>
-    <%= radio_button_tag(:sex, "Woman") %>
+    <%= f.radio_button(:sex, "Woman") %>
     <%= label_tag(:sex, "Woman") %>
   </div>
   <div class="field">
-    <%= f.label :birthday_date %></br>
-    <%= select_day(Time.now) %>
-    <%= select_month(Time.now) %>
-    <%= select_year(Time.now, start_year: (Time.now.year-100), end_year: Time.now.year) %>
+    <%= f.label (:birthday_date) %></br>
+   <%= date_select("user","birthday", order: [:day, :month, :year], start_year: (Time.now.year-100)) %>
+   
   </div>
   
   <hr>
+
   <h4>Change password</h4>
 
   <div class="field">
