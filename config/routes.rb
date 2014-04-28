@@ -1,4 +1,6 @@
 WeeklySocial::Application.routes.draw do
+  resources :articles
+
   get "session/new"
   post "session/create"
   delete "session/destroy"

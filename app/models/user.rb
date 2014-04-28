@@ -19,6 +19,7 @@
 class User < ActiveRecord::Base
 	validates :login, :password_digest, presence: true
 	validates :login, uniqueness: true
+	has_many :articles
   	has_secure_password
 
 
