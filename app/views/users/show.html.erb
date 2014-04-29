@@ -5,8 +5,8 @@
 
 		<div class="side col-md-3">
 		<ul class="nav nav-pills nav-stacked">
-				<li class="active"><%= link_to 'My Page', user_path %></li>
-				<li><%= link_to 'Edit Profile', edit_user_path(@user) %></li>
+				<li class="active"><%= link_to 'My Page', user_path(current_user) %></li>
+				<li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
 				<hr color="#eeeeee">
 				<li><%= button_to 'Logout',{ action: "destroy" , controller: "session"}, method: :delete %></li>
 			</ul>
@@ -26,7 +26,7 @@
 	        	<tr>
 		        	<td class="leftcol">
 						<b>
-						<%= @user.name %>  <%= @user.surname %>
+							<%= @user.name %>  <%= @user.surname %>
 						</b>
 						<hr>
 					</td>
@@ -60,8 +60,10 @@
 					</td>
 				</tr>
 				</table>
-				<%= link_to "What's up, Niga?", new_article_url %>
-				<%  @user.articles.each do |a| %>
+				<% if current_user == @user %>
+					<%= link_to "What's up, Niga?", new_article_url %>
+				<% end %>
+				<%  @user.articles.reverse.each do |a| %>
 				
 					<hr>
 					<h3><%= a.name %></h3>
@@ -69,7 +71,11 @@
 					<table class="text">
 						<tr>
 							<td class="lefcol">Created at: <%= a.created_at %></td>
-							<td class="rightcol"><%= link_to "Edit", edit_article_path(a) %> </td>
+							<td class="rightcol">
+								<% if current_user == @user %>
+									<%= link_to "Edit", edit_article_path(a) %> 
+								<% end %>
+								</td>
 						</tr>
 					</table>
 					

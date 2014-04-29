@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :destroy]
   before_filter :logout , only: [:new,:create]
   before_filter :authorize, except: [:new,:create]
 
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+
   end
 
   # GET /users/new
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
+      if current_user.update(user_params)
         # unless (@user.day and @user.month and @user.year)
         #   @user.day = nil
         #   @user.month = nil
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
         #   format.html { render action: 'edit', notice: 'User birthday date must bu full' }
         #   format.json { head :no_content }
         # end
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
