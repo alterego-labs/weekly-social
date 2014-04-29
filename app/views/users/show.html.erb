@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <div class="container">
 	<div class="row">
@@ -21,6 +21,7 @@
 		        <% end %>
 	        </div>
 	        <div class="col-md-7">
+	        <p id="notice"><%= notice %></p>
 	        	<table class="text">
 	        	<tr>
 		        	<td class="leftcol">
@@ -30,10 +31,7 @@
 						<hr>
 					</td>
 					<td class="rightcol">
-						<!--<b>
-								Online
-								Offline
-						</b>!-->
+						
 					</td>
 				</tr>
 				<tr>
@@ -64,12 +62,17 @@
 				</table>
 				<%= link_to "What's up, Niga?", new_article_url %>
 				<%  @user.articles.each do |a| %>
-				<article>
+				
 					<hr>
 					<h3><%= a.name %></h3>
-					<div<p> <%= a.main_part %></p>
-					<p>Created at: <%= a.created_at %> </p>
-				</article>
+					<pre> <%= a.main_part %></pre>
+					<table class="text">
+						<tr>
+							<td class="lefcol">Created at: <%= a.created_at %></td>
+							<td class="rightcol"><%= link_to "Edit", edit_article_path(a) %> </td>
+						</tr>
+					</table>
+					
 				<% end %>
 
 

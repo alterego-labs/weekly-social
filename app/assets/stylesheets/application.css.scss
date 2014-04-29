@@ -18,13 +18,40 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-  
- 
+
+
+  table.text  {
+    width:  100%; 
+    border-spacing: 0; 
+   }
+
+   table.text 
+   td {
+    width: 100%; 
+    vertical-align: top;
+    text-align: left; 
+   }
+
+   td.rightcol { 
+    text-align: right; 
+    }
+    td.leftcol { 
+    text-align: left; 
+   }
+  a{
+  color:#666;
+  }
+  a:visited
+  {
+    color:#666;
+  }
   a:hover{
-    
     background-color:#428bca;
   }
 }
+
+
+
 
 .page-wrapper {
     min-height: 100%;
