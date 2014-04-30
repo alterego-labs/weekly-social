@@ -64,18 +64,24 @@
 					<%= link_to "What's up, Niga?", new_article_url %>
 				<% end %>
 				<%  @user.articles.reverse.each do |a| %>
-				
 					<hr>
 					<h3><%= a.name %></h3>
 					<pre> <%= a.main_part %></pre>
 					<table class="text">
 						<tr>
-							<td class="lefcol">Created at: <%= a.created_at %></td>
-							<td class="rightcol">
+							<td class="leftcol">Created at: <%= a.created_at %></td>
+							<td class="leftcol">
 								<% if current_user == @user %>
 									<%= link_to "Edit", edit_article_path(a) %> 
+									
 								<% end %>
-								</td>
+							</td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+							<td class="rightcol">
+								<% if current_user == @user %>
+									<%= button_to 'Delete',{ action: "destroy" , controller: "articles", id: a.id}, method: :delete %>
+								<% end %>
+							</td>
 						</tr>
 					</table>
 					
