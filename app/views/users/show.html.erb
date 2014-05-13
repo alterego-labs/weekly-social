@@ -1,94 +1,94 @@
 
-
-<div class="container">
 	<div class="row">
 
-		<div class="side col-md-3">
-		<ul class="nav nav-pills nav-stacked">
+		<div class="side col-xs-3">
+			<ul class="nav nav-pills nav-stacked">
 				<li class="active"><%= link_to 'My Page', user_path(current_user) %></li>
 				<li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
-				<hr color="#eeeeee">
-				<li><%= button_to 'Logout',{ action: "destroy" , controller: "session"}, method: :delete %></li>
+				<hr>
+				<li align="center"><%= button_to 'Logout',{ action: "destroy" , controller: "session"}, {class: "btn btn-default"} %></li>
 			</ul>
 		</div>
 
-		<div class="col-md-9">
-			<div class="col-md-3">
-				<% if @user.avatar_url  %>
-		        	<%= image_tag(@user.avatar_url) %>
-		        <% else %>
-		        	<%= image_tag("avatar.png") %>
-		        <% end %>
-	        </div>
-	        <div class="col-md-7">
-	        <p id="notice"><%= notice %></p>
-	        	<table class="text">
-	        	<tr>
-		        	<td class="leftcol">
-						<b>
-							<%= @user.name %>  <%= @user.surname %>
-						</b>
-						<hr>
-					</td>
-					<td class="rightcol">
-						
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<b>Sex:</b> <%= user_information(@user.sex) %>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<b>Country:</b> <%= user_information(@user.country) %>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<b>City:</b> <%= user_information(@user.home_city) %>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<b>Birthday:</b>
-						<% if @user.birthday %>
-							<%= @user.birthday %>
-						<% else %>
-							Ne ukazano
-						<% end %>
-					</td>
-				</tr>
-				</table>
-				<% if current_user == @user %>
-					<%= link_to "What's up, Niga?", new_article_url %>
-				<% end %>
-				<%  @user.articles.reverse.each do |a| %>
-					<hr>
-					<h3><%= a.name %></h3>
-					<pre> <%= a.main_part %></pre>
-					<table class="text">
-						<tr>
-							<td class="leftcol">Created at: <%= a.created_at %></td>
-							<td class="leftcol">
-								<% if current_user == @user %>
-									<%= link_to "Edit", edit_article_path(a) %> 
-									
-								<% end %>
-							</td>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-							<td class="rightcol">
-								<% if current_user == @user %>
-									<%= button_to 'Delete',{ action: "destroy" , controller: "articles", id: a.id}, method: :delete %>
-								<% end %>
-							</td>
-						</tr>
+		<div class="col-xs-9">
+			<div class="row">
+
+				<div class="col-xs-5">
+					<% if @user.avatar_url  %>
+			      <%= image_tag(@user.avatar_url,size: "240x240") %>
+			    <% else %>
+			      <%= image_tag("avatar.png",size: "240x240") %>
+			    <% end %>
+		    </div>
+
+		    <div class="col-xs-7">
+		        	<table class="text">
+		        	<tr>
+			        	<td class="leftcol">
+							<b>
+								<%= @user.name %>  <%= @user.surname %>
+							</b>
+							<hr>
+						</td>
+						<td class="rightcol">
+							
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<b>Sex:</b> <%= user_information(@user.sex) %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<b>Country:</b> <%= user_information(@user.country) %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<b>City:</b> <%= user_information(@user.home_city) %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<b>Birthday:</b>
+							<% if @user.birthday %>
+								<%= @user.birthday %>
+							<% else %>
+								Ne ukazano
+							<% end %>
+						</td>
+					</tr>
 					</table>
-					
-				<% end %>
-
-
+					<br>
+					<% if current_user == @user %>
+						<%= link_to "What's up, Niga?", new_article_url %>
+					<% end %>
+					<%  @user.articles.reverse.each do |a| %>
+						<hr>
+						<h3><%= a.name %></h3>
+						<pre> <%= a.main_part %></pre>
+						<table class="text">
+							<tr>
+								<td class="leftcol">Created at: <%= a.created_at %></td>
+								<td class="leftcol">
+									<% if current_user == @user %>
+										<%= link_to "Edit", edit_article_path(a) %> 
+										
+									<% end %>
+								</td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								<td class="rightcol">
+									<% if current_user == @user %>
+										<%= button_to 'Delete',{ action: "destroy" , controller: "articles", id: a.id}, method: :delete %>
+									<% end %>
+								</td>
+							</tr>
+						</table>
+						
+					<% end %>
+				</div>
 			</div>
 		</div>
+
 	</div>
-</div>

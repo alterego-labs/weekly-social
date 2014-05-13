@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 
-		<div class="side col-md-3">
+		<div class="side col-xs-3">
 		<ul class="nav nav-pills nav-stacked">
 				<li class="active"><%= link_to 'My Page', user_path(current_user) %></li>
 				<li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
@@ -10,7 +10,7 @@
 			</ul>
 		</div>
 
-		<div class="col-md-9">
+		<div class="col-xs-9">
 			<h1>Editing article</h1>
 			<%= render 'form' %>
 		</div>
