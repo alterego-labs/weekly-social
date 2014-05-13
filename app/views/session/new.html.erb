@@ -1,35 +1,18 @@
-<div class="container">
-	<div class="row">
-
-		<div class="side col-md-3">
-		<% if flash[:notice] %>
-		<div style="width:200px" id="error_explanation">
-			<p><b><%= flash[:notice] %></b></p>
+<div class="row">
+	<div class="col-xs-4 col-xs-offset-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Sign In
+			</div>
+			<div class="panel-body">
+				<%= form_for @user, url: session_create_path do |f| %>
+				  <%= render 'session/form', f: f %>
+				  <button type="submit" class="btn btn-default">Login</button> or <%= link_to 'Registration', new_user_path %>
+				<% end %>
+			</div>
 		</div>
-		<% end %>
-		<%= form_tag("/session/create", method: "post") do  %>
-		  <div class="field">
-		    <%= label_tag :login %><br>
-		    <%= text_field_tag :login %>
-		  </div>
-
-		  <div class="field">
-		    <%= label_tag :password %><br>
-		    <%= password_field_tag :password %>
-		  </div>
-
-		  <div class="actions">
-		    <button type="submit" class="btn btn-default">Accept</button>
-		  </div>
-		<% end %>
-		<%= link_to 'Registration', new_user_path %>
-		</div>
-
-
-
-		<div class="main-page col-md-9">
-			<h3> Welcome! </p>
-		</div>
-
+		
 	</div>
 </div>
+
+

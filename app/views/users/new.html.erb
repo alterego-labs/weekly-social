@@ -1,30 +1,8 @@
-<div class="container">
-	<div class="row">
-
-		<div class="side col-md-3">
-			<%= form_tag("/session/create", method: "post") do  %>
-			  <div class="field">
-			    <%= label_tag :login %><br>
-			    <%= text_field_tag :login %>
-			  </div>
-
-			  <div class="field">
-			    <%= label_tag :password %><br>
-			    <%= password_field_tag :password %>
-			  </div>
-
-			  <div class="actions">
-			    <button type="submit" class="btn btn-default">Accept</button>
-			  </div>
-			<% end %>
-			<%= link_to 'Registration', new_user_path %>
-		</div>
-
-		<div class="col-md-9">
-			<h3>Registration</h3>
-			<p id="notice"><%= notice %></p>
-			<%= render 'form_registration' %>
-		</div>
-
+<div class="row">
+	<div class="col-xs-4 col-xs-offset-4">
+				<h2 align="center">Join to Weekly Social</h2>
+				<%= form_for @user do |f| %>
+				  <%= render 'form_registration', f: f %>
+				<% end %>
 	</div>
 </div>

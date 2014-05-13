@@ -14,80 +14,9 @@
  */
 
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-
-    
-
-  table.text  {
-    width:  100%; 
-    border-spacing: 0; 
-   }
-
-   table.text 
-   td {
-    width: 100%; 
-    vertical-align: top;
-    text-align: left; 
-   }
-
-   td.rightcol { 
-    text-align: right; 
-    }
-    td.leftcol { 
-    text-align: left; 
-   }
-  a{
-  color:#666;
-  }
-  a:visited
-  {
-    color:#666;
-  }
-  a:hover{
-    background-color:#428bca;
-  }
+footer {
+  margin-top: 20px;
+  text-align: center;
+  padding-top: 20px;
+  color: #CCC;
 }
-
-.field{
-  text-align:center;
-}
-
-
-.page-wrapper {
-    min-height: 100%;
-    margin-bottom: -50px;
-    
-}
-* html .page-wrapper {
-    height: 100%;
-
-  
-}
-.page-buffer {
-    height: 50px;
-}
-.page-footer{
-	border-top: 2px solid #eeeeee;
-}
-
- .side{
-	border-right:2px solid #eeeeee;
-	}
-.page-header{
-	border-bottom:2px solid #eeeeee;
-    img {
-    float: left;
-    height: 55px;
-    width: 55px;
-
-
- 
-    }
-
-}
-
-
-

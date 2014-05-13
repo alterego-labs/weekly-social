@@ -1,45 +1,29 @@
-<%= form_for(@user) do |f| %>
 
-  <% if @user.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-error">
-      The form contains <%= pluralize(@user.errors.count, "error") %>.
-    </div>
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li>* <%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
-  <div class="field">
-    <%= f.label :login %><br>
-    <%= f.text_field :login %>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Login</label>
+    <%= f.text_field :login, class: 'form-control'  %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <%= f.password_field :password, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password confirmation</label>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <%= f.text_field :name, class: 'form-control'  %>
   </div>
 
-  <div class="field">
-    <%= f.label :surname %><br>
-    <%= f.text_field :surname %>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Surname</label>
+    <%= f.text_field :surname, class: 'form-control'  %>
   </div>
 
-  <div class="actions">
-    <button type="submit" class="btn btn-default">Accept</button>
+  <div class="text-center">
+    <button type="submit" class="btn btn-default">Join</button>
   </div>
-  
-<% end %>
