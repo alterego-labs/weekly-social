@@ -6,8 +6,7 @@
 				<li class="active"><%= link_to 'My Page', user_path(current_user) %></li>
 				<li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
 				<hr>
-				<li align="center"><%= button_to 'Logout',{ action: "destroy" , controller: "session"}, method: :delete %></li>
-			</ul>
+		</ul>
 		</div>
 
 		<div class="col-xs-9">

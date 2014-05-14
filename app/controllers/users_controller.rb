@@ -52,10 +52,10 @@ class UsersController < ApplicationController
         #   format.html { render action: 'edit', notice: 'User birthday date must bu full' }
         #   format.json { head :no_content }
         # end
-        format.html { redirect_to current_user, notice: 'User was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'Profile was successfully edit' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { redirect_to edit_user_path(current_user), alert: 'What a fuck?' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

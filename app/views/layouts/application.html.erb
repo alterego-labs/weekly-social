@@ -43,12 +43,18 @@
       <div class="container">
         <%= link_to 'Weekly Social', root_path, class: "navbar-brand" %>
         <% if !(session[:user_id]) %>
+
           <%= form_for @user , url: session_create_path, html:{ class: "navbar-form navbar-right" } do |f| %>
-          <%= render 'session/form' ,f: f %>
-          <button type="submit" class="btn btn-default">Login</button> 
-          &nbsp; 
-          <%= link_to 'Registration', new_user_path %>
-        <% end %>
+            <%= render 'session/form' ,f: f %>
+            <button type="submit" class="btn btn-success">Login</button> 
+            &nbsp; 
+            <%= link_to 'Registration', new_user_path %>
+          <% end %>
+
+        <% else %>
+          <div class="navbar-form navbar-right">
+            <%= button_to 'Logout',{ action: "destroy" , controller: "session"}, {class: "btn btn-danger", method: :delete, style: 'border-radius: 70px'}%>
+          </div>
         <% end %>
       </div>
     </div>
@@ -63,6 +69,7 @@
     </div> <!-- /container -->
 
     <footer>
+
       <p>&copy; Company 2014</p>
     </footer>
 

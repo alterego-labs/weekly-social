@@ -6,7 +6,7 @@
 				<li class="active"><%= link_to 'My Page', user_path(current_user) %></li>
 				<li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
 				<hr>
-				<li align="center"><%= button_to 'Logout',{ action: "destroy" , controller: "session"}, {class: "btn btn-default"} %></li>
+				<li align="center"></li>
 			</ul>
 		</div>
 
@@ -14,7 +14,7 @@
 			<div class="row">
 
 				<div class="col-xs-5">
-					<% if @user.avatar_url  %>
+					<% unless @user.avatar_url.nil? or @user.avatar_url == ""   %>
 			      <%= image_tag(@user.avatar_url,size: "240x240") %>
 			    <% else %>
 			      <%= image_tag("avatar.png",size: "240x240") %>
@@ -67,20 +67,21 @@
 					<%  @user.articles.reverse.each do |a| %>
 						<hr>
 						<h3><%= a.name %></h3>
-						<pre> <%= a.main_part %></pre>
+						<p> <%= a.main_part %></p>
 						<table class="text">
 							<tr>
 								<td class="leftcol">Created at: <%= a.created_at %></td>
 								<td class="leftcol">
 									<% if current_user == @user %>
-										<%= link_to "Edit", edit_article_path(a) %> 
+										<%= button_to 'Edit',{ action: "edit" , controller: "articles", id: a.id}, {class: 'btn btn-info' , method: :get} %>
 										
 									<% end %>
 								</td>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								<td></td>
 								<td class="rightcol">
 									<% if current_user == @user %>
-										<%= button_to 'Delete',{ action: "destroy" , controller: "articles", id: a.id}, method: :delete %>
+										<%= button_to 'Delete',{ action: "destroy" , controller: "articles", id: a.id}, {class: 'btn btn-warning' , method: :delete} %>
+                    
 									<% end %>
 								</td>
 							</tr>
